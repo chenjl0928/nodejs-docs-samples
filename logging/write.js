@@ -59,10 +59,9 @@ function writeExample (logName, callback) {
     }
   };
 
-
   // Create a log entry attached to the specified resource
   var entry = log.entry(resource, {
-    foo: 'Test gcloud log entry'
+    foo: 'for test'
   });
 
   // Create a second log entry attached to the specified resource
@@ -129,30 +128,3 @@ exports.main = function (cb) {
 if (module === require.main) {
   exports.main();
 }
-
-
-
-
-
-// Create a log entry attached to the specified resource
-var entry = log.entry(resource, {
-  foo: 'bar'
-});
-
-
-//based on the above code, you can call the log instance's methods to output specified level log
-log.debug(entry, function(err, apiResponse) {
-  if(!err){
-    console.log("log success");
-  }else{
-    console.log(err);
-  }
-});
-
-log.emergency(entry, function(err, apiResponse) {
-  if(!err){
-    console.log("log success");
-  }else{
-    console.log(err);
-  }
-});
