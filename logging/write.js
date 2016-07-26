@@ -54,14 +54,15 @@ function writeExample (logName, callback) {
     // This example targets a "App Engine" resource in the default module with
     // a version_id of "express"
     labels: {
-      module_id: 'testgcloud',
-      version_id: 'chenjl'
+      module_id: 'gcloudTest',
+      version_id: 'express-zoe'
     }
   };
 
+
   // Create a log entry attached to the specified resource
   var entry = log.entry(resource, {
-    foo: 'chenjl'
+    foo: 'Test gcloud log entry'
   });
 
   // Create a second log entry attached to the specified resource
@@ -117,7 +118,7 @@ function deleteLogExample (logName, callback) {
 exports.main = function (cb) {
   async.series([
     function (cb) {
-      writeExample('syslog', cb);
+      writeExample('app', cb);
     },
     function (cb) {
       //deleteLogExample('myLog', cb);
