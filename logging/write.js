@@ -103,7 +103,7 @@ exports.main = function (cb) {
       writeExample('myLog', cb);
     },
     function (cb) {
-      deleteLogExample('myLog', cb);
+      //deleteLogExample('myLog', cb);
     }
   ], cb || console.log);
 };
