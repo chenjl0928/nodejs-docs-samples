@@ -39,38 +39,55 @@ function writeExample (logName, callback) {
   // Modify this resource type to match a resource in your project
   // See https://cloud.google.com/logging/docs/api/ref_v2beta1/rest \
   //       /v2beta1/monitoredResourceDescriptors/list
+  //var resource = {
+  //  type: 'gae_app',
+  //  // This example targets a "App Engine" resource in the default module with
+  //  // a version_id of "express"
+  //  labels: {
+  //    module_id: 'default',
+  //    version_id: 'express'
+  //  }
+  //};
+
   var resource = {
     type: 'gae_app',
     // This example targets a "App Engine" resource in the default module with
     // a version_id of "express"
     labels: {
-      module_id: 'default',
-      version_id: 'express'
+      module_id: 'testgcloud',
+      version_id: 'chenjl'
     }
   };
 
   // Create a log entry attached to the specified resource
   var entry = log.entry(resource, {
-    foo: 'bar'
+    foo: 'chenjl'
   });
 
   // Create a second log entry attached to the specified resource
-  var secondEntry = log.entry(resource, {
-    beep: 'boop'
-  });
+  //var secondEntry = log.entry(resource, {
+  //  beep: 'boop'
+  //});
 
   // Save the two log entries. You can log multiple entries one at a a time, but
   // it is best to write multiple entires together in a batch.
-  log.write([
-    entry,
-    secondEntry
-  ], function (err, apiResponse) {
-    if (err) {
-      return callback(err);
+  //log.write([
+  //  entry,
+  //  secondEntry
+  //], function (err, apiResponse) {
+  //  if (err) {
+  //    return callback(err);
+  //  }
+  //
+  //  console.log('Wrote to ' + logName);
+  //  callback(null, apiResponse);
+  //});
+  log.error(entry, function(err, apiResponse) {
+    if(!err){
+      console.log("log success");
+    }else{
+      console.log(err);
     }
-
-    console.log('Wrote to ' + logName);
-    callback(null, apiResponse);
   });
 }
 // [END write]
