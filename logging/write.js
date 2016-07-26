@@ -82,7 +82,7 @@ function writeExample (logName, callback) {
   //  console.log('Wrote to ' + logName);
   //  callback(null, apiResponse);
   //});
-  log.error(entry, function(err, apiResponse) {
+  log.debug(entry, function(err, apiResponse) {
     if(!err){
       console.log("log success");
     }else{
@@ -117,7 +117,7 @@ function deleteLogExample (logName, callback) {
 exports.main = function (cb) {
   async.series([
     function (cb) {
-      writeExample('myLog', cb);
+      writeExample('syslog', cb);
     },
     function (cb) {
       //deleteLogExample('myLog', cb);
